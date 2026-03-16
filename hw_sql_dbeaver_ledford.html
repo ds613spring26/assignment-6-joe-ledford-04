@@ -184,11 +184,41 @@ Attaching package: 'dplyr'</code></pre>
 10 2013-01-01 11:00:00</code></pre>
 </div>
 </div>
+</section>
+<section id="b." class="level3">
+<h3 class="anchored" data-anchor-id="b.">b.</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(dbcon, <span class="st">"SELECT COUNT(*) FROM flights"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  count_star()
+1       336776</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(dbcon, <span class="st">"SELECT carrier, COUNT(*) FROM flights GROUP BY carrier"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   carrier count_star()
+1       OO           32
+2       WN        12275
+3       F9          685
+4       AS          714
+5       FL         3260
+6       HA          342
+7       UA        58665
+8       MQ        26397
+9       VX         5162
+10      US        20536
+11      EV        54173
+12      AA        32729
+13      9E        18460
+14      YV          601
+15      B6        54635
+16      DL        48110</code></pre>
+</div>
+</div>
 <section id="nb" class="level4">
 <h4 class="anchored" data-anchor-id="nb">NB:</h4>
 <p>Needed to add this at the bottom of my file, so that I wouldn’t get an error when rendering my file for each commit. It wouldn’t let me render without disconnecting.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(dbcon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(dbcon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>

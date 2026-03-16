@@ -29,6 +29,13 @@ dbIsValid(dbcon)
 dbGetQuery(dbcon, "SELECT * FROM flights LIMIT 10")
 ```
 
+### b.
+
+```{R}
+dbGetQuery(dbcon, "SELECT COUNT(*) FROM flights")
+dbGetQuery(dbcon, "SELECT carrier, COUNT(*) FROM flights GROUP BY carrier")
+```
+
 #### NB:
 
 Needed to add this at the bottom of my file, so that I wouldn't get an error when rendering my file for each commit. It wouldn't let me render without disconnecting.
