@@ -1,0 +1,38 @@
+---
+title: "hw_sql_dbeaver_ledford"
+author: "Joe Ledford"
+format: html
+editor: visual
+---
+
+## Part 1:
+
+```{R}
+library(DBI)
+library(duckdb)
+library(nycflights13)
+library(dplyr)
+
+download.file(
+  "https://data-science-master.github.io/lectures/data/flights.duckdb",
+  destfile = "flights.duckdb",
+  mode = "wb"
+)
+```
+
+### a. 
+
+```{R}
+dbcon <- dbConnect(duckdb::duckdb(), dbdir = "flights.duckdb")
+dbIsValid(dbcon)
+
+dbGetQuery(dbcon, "SELECT * FROM flights LIMIT 10")
+```
+
+#### NB:
+
+Needed to add this at the bottom of my file, so that I wouldn't get an error when rendering my file for each commit. It wouldn't let me render without disconnecting.
+
+```{R}
+dbDisconnect(dbcon)
+```
