@@ -72,3 +72,9 @@ Needed to add this at the bottom of my file, so that I wouldn't get an error whe
 ```{R}
 dbDisconnect(dbcon)
 ```
+
+## Part 2:
+
+### a.
+
+![](images/Screenshot 2026-03-17 at 11.55.37 AM.png)
