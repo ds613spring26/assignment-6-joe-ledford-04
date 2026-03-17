@@ -78,3 +78,7 @@ dbDisconnect(dbcon)
 ### a.
 
 ![](images/dbeaverSQLqueryA.png)
+
+### b.
+
+![](images/dbeaverSQLqueryB.png)
