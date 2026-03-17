@@ -54,6 +54,17 @@ ORDER BY dest_count DESC
 LIMIT 5")
 ```
 
+### e.
+
+```{R}
+dbGetQuery(dbcon, "
+SELECT carrier, AVG(arr_delay)
+AS carrier_delays
+FROM flights 
+GROUP BY carrier
+ORDER BY carrier_delays DESC ")
+```
+
 # NB:
 
 Needed to add this at the bottom of my file, so that I wouldn't get an error when rendering my file for each commit. It wouldn't let me render without disconnecting.

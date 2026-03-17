@@ -196,22 +196,22 @@ Attaching package: 'dplyr'</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(dbcon, <span class="st">"SELECT carrier, COUNT(*) FROM flights GROUP BY carrier"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   carrier count_star()
-1       FL         3260
-2       HA          342
-3       UA        58665
-4       MQ        26397
-5       VX         5162
-6       WN        12275
-7       AS          714
-8       F9          685
-9       AA        32729
-10      EV        54173
-11      US        20536
-12      9E        18460
-13      YV          601
+1       EV        54173
+2       AA        32729
+3       US        20536
+4       9E        18460
+5       YV          601
+6       OO           32
+7       UA        58665
+8       MQ        26397
+9       VX         5162
+10      WN        12275
+11      AS          714
+12      F9          685
+13      DL        48110
 14      B6        54635
-15      DL        48110
-16      OO           32</code></pre>
+15      FL         3260
+16      HA          342</code></pre>
 </div>
 </div>
 </section>
@@ -245,12 +245,42 @@ Attaching package: 'dplyr'</code></pre>
 </div>
 </div>
 </section>
+<section id="e." class="level3">
+<h3 class="anchored" data-anchor-id="e.">e.</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(dbcon, <span class="st">"</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT carrier, AVG(arr_delay)</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="st">AS carrier_delays</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM flights </span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY carrier</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY carrier_delays DESC "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   carrier carrier_delays
+1       F9     21.9207048
+2       FL     20.1159055
+3       EV     15.7964311
+4       YV     15.5569853
+5       OO     11.9310345
+6       MQ     10.7747334
+7       WN      9.6491199
+8       B6      9.4579733
+9       9E      7.3796692
+10      UA      3.5580111
+11      US      2.1295951
+12      VX      1.7644644
+13      DL      1.6443409
+14      AA      0.3642909
+15      HA     -6.9152047
+16      AS     -9.9308886</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="nb" class="level1">
 <h1>NB:</h1>
 <p>Needed to add this at the bottom of my file, so that I wouldn’t get an error when rendering my file for each commit. It wouldn’t let me render without disconnecting.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(dbcon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(dbcon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 
