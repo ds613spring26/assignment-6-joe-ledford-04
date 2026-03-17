@@ -77,4 +77,4 @@ dbDisconnect(dbcon)
 
 ### a.
 
-![](images/Screenshot 2026-03-17 at 11.55.37 AM.png)
+![](images/dbeaverSQLqueryA.png)
