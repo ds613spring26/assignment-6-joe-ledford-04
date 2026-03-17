@@ -196,22 +196,22 @@ Attaching package: 'dplyr'</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(dbcon, <span class="st">"SELECT carrier, COUNT(*) FROM flights GROUP BY carrier"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   carrier count_star()
-1       OO           32
-2       US        20536
-3       EV        54173
-4       AA        32729
-5       9E        18460
-6       YV          601
-7       UA        58665
-8       MQ        26397
-9       VX         5162
-10      B6        54635
-11      DL        48110
-12      WN        12275
-13      F9          685
-14      AS          714
-15      FL         3260
-16      HA          342</code></pre>
+1       FL         3260
+2       HA          342
+3       UA        58665
+4       MQ        26397
+5       VX         5162
+6       WN        12275
+7       AS          714
+8       F9          685
+9       AA        32729
+10      EV        54173
+11      US        20536
+12      9E        18460
+13      YV          601
+14      B6        54635
+15      DL        48110
+16      OO           32</code></pre>
 </div>
 </div>
 </section>
@@ -224,14 +224,34 @@ Attaching package: 'dplyr'</code></pre>
 1       12.63907</code></pre>
 </div>
 </div>
-<section id="nb" class="level4">
-<h4 class="anchored" data-anchor-id="nb">NB:</h4>
-<p>Needed to add this at the bottom of my file, so that I wouldn’t get an error when rendering my file for each commit. It wouldn’t let me render without disconnecting.</p>
+</section>
+<section id="d." class="level3">
+<h3 class="anchored" data-anchor-id="d.">d.</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(dbcon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbGetQuery</span>(dbcon, <span class="st">"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT dest, COUNT(*) </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">AS dest_count</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="st">FROM flights </span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY dest</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY dest_count DESC </span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="st">LIMIT 5"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  dest dest_count
+1  ORD      17283
+2  ATL      17215
+3  LAX      16174
+4  BOS      15508
+5  MCO      14082</code></pre>
+</div>
 </div>
 </section>
 </section>
+<section id="nb" class="level1">
+<h1>NB:</h1>
+<p>Needed to add this at the bottom of my file, so that I wouldn’t get an error when rendering my file for each commit. It wouldn’t let me render without disconnecting.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(dbcon)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 
 </main>

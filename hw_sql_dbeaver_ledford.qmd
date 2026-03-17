@@ -42,7 +42,19 @@ dbGetQuery(dbcon, "SELECT carrier, COUNT(*) FROM flights GROUP BY carrier")
 dbGetQuery(dbcon, "SELECT AVG(dep_delay) FROM flights")
 ```
 
-#### NB:
+### d.
+
+```{R}
+dbGetQuery(dbcon, "
+SELECT dest, COUNT(*) 
+AS dest_count
+FROM flights 
+GROUP BY dest
+ORDER BY dest_count DESC 
+LIMIT 5")
+```
+
+# NB:
 
 Needed to add this at the bottom of my file, so that I wouldn't get an error when rendering my file for each commit. It wouldn't let me render without disconnecting.
 
